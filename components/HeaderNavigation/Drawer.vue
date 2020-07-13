@@ -1,6 +1,6 @@
 <template>
   <div class="menu hamburger-menu main-header__menu"> 
-      <input id="menu__toggle" type="checkbox" />
+      <input @change="eve" id="menu__toggle" type="checkbox" />
       <label class="menu__btn main-header_btn" for="menu__toggle">
           <span></span>
       </label>
@@ -102,13 +102,32 @@
 
 <script>
     export default {
-        name: 'Drawer',
-        props: {
-           
-        },
-        components: {
-            
+      name: 'Drawer',
+      props: {
+          
+      },
+      data(){
+        return{
+
         }
+      },
+      components: {
+          
+      },
+      methods:{
+        eve(e){
+          let chk = event.target.checked
+          console.log(chk);
+          let html = document.querySelector('html');
+          let menuBox = document.querySelector('.menu.hamburger-menu.main-header__menu');
+          if(chk){
+            html.style.overflow = 'hidden';
+            menuBox.style.zIndex = '10';
+          }else{
+            html.style.overflow = 'auto';
+          }
+        }
+      }
     }
 </script>
 

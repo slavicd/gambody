@@ -2,7 +2,6 @@
  <div>
    <div class="add-btn main-header__button-type">
      <div class="add-btn__item main-header_btn">
-
      </div>
    </div>
    <div class="main-header__mixblocks">

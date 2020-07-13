@@ -13,8 +13,10 @@
     "precommit": "npm run lint"
   },
   "dependencies": {
+    "colorette": "^1.2.1",
+    "css-loader": "^3.6.0",
     "nuxt": "^2.0.0",
-    "tiny-slider": "^2.9.2"
+    "vue-tiny-slider": "^0.1.39"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.1",

@@ -1,41 +1,35 @@
 <template>
-   <div class="slider main-slider__block">
-     <div class="main-slider__item" ><img  src="../../img/jpg/home_background.jpg"  alt="slider"/></div>
-     <div class="main-slider__item" ><img  src="../../img/jpg/home_background.jpg" alt="slider"/></div>
-     <div class="main-slider__item" ><img  src="../../img/jpg/home_background.jpg" alt="slider"/></div>
-   </div>
+   <no-ssr>
+      <vue-tiny-slider 
+        :mouse-drag="false" 
+        :loop="true"
+        navPosition='bottom'
+        :controls="sliderControls"
+        :autoplayButtonOutput="false" 
+        :items="sliderItem"
+        :autoplay="sliderAutoPlay"
+        >
+         <slot></slot>
+      </vue-tiny-slider>
+    </no-ssr>
 </template>
 
 <script>
   export default {
       name: 'Slider',
+      props:['sliderItem','sliderAutoPlay', 'sliderControls'],
       components: {
-
       },
-      data(){
+       data(){
         return{
         }
       },
+      computed:{
+        MainSliders () {
+          return this.$store.state.mainSlider.sliders
+        }
+      },
       mounted(){
-        let slider = document.querySelector('.main-slider__block');
-          if(slider){
-              tns({
-                container: '.main-slider__block',
-                items:1,
-                nav: true,
-                navPosition: 'bottom',
-                controls: false,
-                gutter:0,
-                loop:true,
-              autoplayButtonOutput:false,
-                autoplay: true,
-                responsive:{
-                    750:{
-                        controls: true,
-                    },
-                }
-            });
-          }
       }
   }
 </script>
